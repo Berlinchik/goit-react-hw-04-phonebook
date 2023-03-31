@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const ContactList = ({ items, onDelete }) => {
   return items.length ? (
     <ul className={s.list}>
-      {items.map(({ name, number, id }) => (
+      {items.map(({ userName, number, id }) => (
         <li key={id} className={s.item}>
-          {name}: {number}
+          {userName}: {number}
           <button onClick={e => onDelete(id)} className={s.btn}>
             Delete
           </button>
@@ -14,7 +14,7 @@ const ContactList = ({ items, onDelete }) => {
       ))}
     </ul>
   ) : (
-    <p className={s.text}>You don't have any contact yet</p>
+    <p className={s.text}>You don't have contacts</p>
   );
 };
 
