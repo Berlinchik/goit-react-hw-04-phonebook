@@ -2,7 +2,7 @@ import s from './ContactList.module.scss';
 import PropTypes from 'prop-types';
 
 const ContactList = ({ items, onDelete }) => {
-  return items.length ? (
+  return items.length > 0 ? (
     <ul className={s.list}>
       {items.map(({ userName, number, id }) => (
         <li key={id} className={s.item}>

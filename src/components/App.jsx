@@ -40,9 +40,12 @@ export const App = () => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const filteredContacts = contacts.filter(({ userName }) =>
-    userName.toLowerCase().includes(filter)
-  );
+  const filteredContacts =
+    contacts.length > 0
+      ? contacts.filter(({ userName }) =>
+          userName.toLowerCase().includes(filter)
+        )
+      : contacts;
 
   return (
     <div className={s.container}>
