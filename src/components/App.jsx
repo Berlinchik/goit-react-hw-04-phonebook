@@ -23,7 +23,7 @@ export const App = () => {
   };
 
   const onFilterChange = e => {
-    setFilter(e.currentTarget.value.trim());
+    setFilter(e.currentTarget.value.toLowerCase().trim());
   };
 
   const onDelete = elemId => {
@@ -42,7 +42,9 @@ export const App = () => {
 
   const filteredContacts =
     contacts.length > 0
-      ? contacts.filter(({ userName }) => userName.includes(filter))
+      ? contacts.filter(({ userName }) =>
+          userName.toLowerCase().includes(filter)
+        )
       : contacts;
 
   return (
