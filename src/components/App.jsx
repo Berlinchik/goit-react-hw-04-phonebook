@@ -11,7 +11,9 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   const onSubmitHandle = data => {
-    const elem = contacts.find(({ userName }) => userName === data.userName);
+    const elem = contacts.find(
+      ({ userName }) => userName.toLowerCase() === data.userName.toLowerCase()
+    );
 
     if (!elem) {
       setContacts(prevState => {
